@@ -2,13 +2,14 @@ const { newFolderName } = require('../server.js')
 
 describe('folder names', function () {
   it('should generate "New Folder" with an empty array', function () {
+    // check for empty
     const result = newFolderName([])
     expect(result).toBe('New Folder')
   })
 
   it('should generate "New Folder" if that name does\'t exist', function () {
     expect(newFolderName(['a folder', 'new folder'])).toBe('New Folder')
-
+    // if no New Folder, generate New Folder with empty array
     const folders = ['New Folder (1)', 'New Folder (2)', 'New Folder (3)']
     expect(newFolderName(folders)).toBe('New Folder')
   })
